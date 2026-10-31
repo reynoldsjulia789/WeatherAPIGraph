@@ -81,7 +81,10 @@ plt.close()
 hourly_dataframe['year']  = hourly_dataframe['date'].dt.year
 hourly_dataframe['month'] = hourly_dataframe['date'].dt.month
 
-annual_totals = hourly_dataframe.groupby('year')['precipitation'].sum()
+annual_totals          = hourly_dataframe.groupby('year')['precipitation'].sum()
+
+filtered_annual_totals = annual_totals[annual_totals.index != 2004] # for some reason there is some data showing up from Dec 2004
+average_precipitation  = filtered_annual_totals.mean()
 
 # Graph 2: total precipitation per year
 normalized  = plt.Normalize(vmin = annual_totals.values.min(), vmax = annual_totals.values.max(), clip = True)
@@ -94,7 +97,12 @@ color_bar   = plt.colorbar(color_scale, ax=plt.gca())
 plt.title('Total Annual Precipitation in Spokane, Washington')
 plt.xlabel('year')
 plt.ylabel('total precipitation in inches')
-plt.bar(annual_totals.index, annual_totals.values, color = bar_colors)
+
+plt.axhline(y = average_precipitation, color = 'black', zorder = 1,
+            linestyle = '--', linewidth = 1.5, label = f'mean ({average_precipitation:.1f} in)')
+plt.legend(loc = 'upper right')
+
+plt.bar(annual_totals.index, annual_totals.values, color = bar_colors, zorder = 2)
 
 # plt.show()
 plt.savefig("TotalAnnualPrecipiation_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
