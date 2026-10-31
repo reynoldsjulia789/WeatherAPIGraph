@@ -70,8 +70,10 @@ plt.xlabel('time in years')
 plt.ylabel('precipitation in inches')
 plt.plot(hourly_data['date'], hourly_data['precipitation'], color = plot_colors(np.linspace(0.9, 0.9, 1)))
 
-plt.show()
-plt.savefig("PrecipitationOverTime_Spokane.png", format="png", dpi=500)
+# plt.show()
+plt.savefig("PrecipitationOverTime_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
+plt.clf()
+plt.close()
 
 
 # ----------------------
@@ -94,9 +96,10 @@ plt.xlabel('year')
 plt.ylabel('total precipitation in inches')
 plt.bar(annual_totals.index, annual_totals.values, color = bar_colors)
 
-plt.show()
-plt.savefig("TotalAnnualPrecipiation_Spokane.png", format="png", dpi=500)
-
+# plt.show()
+plt.savefig("TotalAnnualPrecipiation_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
+plt.clf()
+plt.close()
 
 # ----------------------
 # Calculations for monthly percentages of annual precipitation
@@ -114,8 +117,10 @@ labels = [
 plt.title('Average Monthly Percent Precipitation in Spokane, Washington')
 plt.pie(monthly_percentages, labels = labels, startangle = 180, counterclock = False, colors = pie_colors)
 
-plt.show()
-plt.savefig("AverageMonthyPercentPrecipitation_Spokane.png", format="png", dpi=500)
+# plt.show()
+plt.savefig("AverageMonthyPercentPrecipitation_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
+plt.clf()
+plt.close()
 
 # ----------------------
 # Calculations for 2025 precipitation percentages
@@ -134,8 +139,10 @@ labels_2025 = [
 plt.title('Percent Precepitation by Month in Spokane, Washington, in 2025')
 plt.pie(monthly_percentages_2025, labels = labels_2025, startangle = 180, counterclock = False, colors = pie_colors)
 
-plt.show()
-plt.savefig("PercentPrecipitation2025_Spokane.png", format="png", dpi=500)
+# plt.show()
+plt.savefig("PercentPrecipitation2025_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
+plt.clf()
+plt.close()
 
 # ----------------------
 # Calculations for 2021 precipitation percentages (least total precipitation)
@@ -154,8 +161,10 @@ labels_2021 = [
 plt.title('Percent Precepitation by Month in Spokane, Washington, in 2021')
 plt.pie(monthly_percentages_2021, labels = labels_2021, startangle = 180, counterclock = False, colors = pie_colors)
 
-plt.show()
-plt.savefig("PercentPrecipitation2021_Spokane.png", format="png", dpi=500)
+# plt.show()
+plt.savefig("PercentPrecipitation2021_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
+plt.clf()
+plt.close()
 
 # ----------------------
 # Calculations for 2012 precipitation percentages (highest total precipitation)
@@ -179,5 +188,7 @@ explode_values = [
 plt.title('Percent Precepitation by Month in Spokane, Washington, in 2012')
 plt.pie(monthly_percentages_2012, labels = labels_2012, startangle = 180, counterclock = False, colors = pie_colors, explode = explode_values)
 
-plt.show()
-plt.savefig("PercentPrecipitation2012_Spokane.png", format="png", dpi=500)
+# plt.show()
+plt.savefig("PercentPrecipitation2012_Spokane.png", format = "png", dpi = 600, bbox_inches = 'tight', pad_inches = 0)
+plt.clf()
+plt.close()
